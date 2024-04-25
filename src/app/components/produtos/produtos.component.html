@@ -1,0 +1,52 @@
+<input
+  [(ngModel)]="cod"
+  type="text"
+  class="form-control mb-3"
+  placeholder="Digite um código"
+/>
+
+<button [disabled]="!cod" class="btn btn-primary" (click)="irParaDetail()">Buscar</button>
+
+<!--
+<div class="d-flex justfy-content-around aling-items-center">
+  <table class="table w-75 mt-3">
+    <thead>
+      <tr>
+        <th>Cód.</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of produtos">
+        <td>{{prod.cod}}</td>
+        <td>{{prod.nome}}</td>
+        <td>{{prod.descricao}}</td>
+        <td>
+          <a [routerLink]="['/produtos', prod.cod]" class="btn btn-primary btn-sm">Ver mais</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <router-outlet></router-outlet>
+</div>
+-->
+
+
+<div class="d-flex justify-content-center align-items-center">
+  <div *ngFor="let prod of produtos" class="card" style="width: 18rem; margin: 10px;">
+    <div class="card-body">
+      <div style="height: 200px; overflow: hidden;">
+        <img [src]="prod.imagem" class="card-img-top" style="object-fit: cover; width: 100%; height: 100%;" alt="...">
+      </div>
+      <h5 class="card-title">{{prod.nome}}</h5>
+      <p class="card-text">Cod: {{prod.cod}}</p>
+      <p class="card-text">{{prod.descricao}}</p>
+      <a routerLink="/produtos/{{prod.cod}}" class="btn btn-primary">Ver produto</a>
+    </div>
+  </div>
+</div>
+
+
+
